@@ -1,0 +1,9 @@
+<% content_for :head do %>
+	Nuevo expediente
+<% end %>
+
+<%= render 'form' %>
+
+<% content_for :extra_options do %>
+	<li><%= link_to "Volver a listado", proceedings_path %></li>
+<% end %>

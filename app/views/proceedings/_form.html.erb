@@ -1,0 +1,534 @@
+<%= form_for(@proceeding) do |f| %>
+<div id="first-block">
+  <div class="field">
+	<h2><%= f.label :numExpediente, "#{t(:num_expediente)}:" %> <span id="valueExp"><%= @proceeding.numExpediente %></span></h2>
+	<%= f.hidden_field :numExpediente, :value => @proceeding.numExpediente %>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= f.label :nombre, "#{t(:nombre)}:" %>
+    	<%= f.text_field :nombre, :size => 10 %>
+	</div>
+	<div class="block" style="margin-left:2em">
+		<%= f.label :apellidos, "#{t(:apellidos)}:" %>
+    	<%= f.text_field :apellidos, :size => 20 %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= f.label :edad, "#{t(:edad)}:" %>
+    	<%= f.text_field :edad, :size => 3, :class =>'center' %>
+	</div>
+  
+	<div class="block no-underline" style="margin-left:10em">
+  	<%= f.label :sexo, "#{t(:sexo)}:" %>
+    <%= f.radio_button :sexo, 'true', :checked => true %> <%= f.label :sexo, t(:hombre), :value=>'true' %>
+	<%= f.radio_button :sexo, 'false' %> <%= f.label :sexo, t(:mujer), :value=>'false' %>
+	</div>
+  	
+	<div class="block derecha">
+		<%= f.label :dni, "#{t(:dni)}:" %>
+    	<%= f.text_field :dni %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= f.label :asunto, "#{t(:asunto)}:" %>
+    	Despido 
+		<%= f.radio_button :asunto, '0', :checked => true %> <%= f.label :asunto, 'objetivo', :value=>'0' %>
+		<%= f.radio_button :asunto, '1' %> <%= f.label :asunto, 'disciplinario', :value=>'1' %>
+	</div>
+    
+  	<div class="block derecha">
+  		<%= f.label :fecha_despido, "#{t(:fecha_despido)}:" %>
+		<%= f.text_field 	:fecha_despido, 
+							:placeholder=>'dd', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:name => "proceeding[fecha_despido(3i)]",
+							:id => "proceeding_fecha_despido_3i" %>/
+		<%= f.text_field 	:fecha_despido, 
+							:placeholder=>'mm', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:name => "proceeding[fecha_despido(2i)]",
+							:id => "proceeding_fecha_despido_2i" %>/
+		<%= f.text_field 	:fecha_despido, 
+							:placeholder=>'aaaa', 
+							:class=>'short-4 center', 
+							:size => 4,
+							:name => "proceeding[fecha_despido(1i)]",
+							:id => "proceeding_fecha_despido_1i" %>
+	</div>
+    <%#= f.date_select :fecha_despido %>
+  </div>
+  <div class="field">
+	<div class="block">
+  		<%= f.label :carta_despido, "#{t(:carta_despido)}:" %>
+		<%= f.file_field :carta_despido %>
+	</div>
+  </div>
+  <% unless @proceeding.new_record? %>
+	<% if @old_proceeding.carta_despido.path != nil%>
+  		<div class="field">
+			<%= f.check_box :remove_carta_despido %>
+			<%= f.label :remove_carta_despido, "#{t(:remove_carta_despido)}:" %>
+			<%= nombre_archivo(:carta_despido, @old_proceeding) %>
+  		</div>
+	<% end %>
+  <% end %>
+  <div class="field">
+	<div class="block">
+  		<%= f.label :finiquito, "#{t(:finiquito)}:" %>
+		<%= f.file_field :finiquito %>
+	</div>
+  </div>
+  <% unless @proceeding.new_record? %>
+	<% if  @old_proceeding.finiquito.path != nil %>
+  		<div class="field">
+			<%= f.check_box :remove_finiquito %>
+			<%= f.label :remove_finiquito, "#{t(:remove_finiquito)}:" %>
+			<%= nombre_archivo(:finiquito, @old_proceeding) %>
+  		</div>
+	<% end %>
+  <% end %>
+  <div class="field">
+	<div class="block no-underline">
+		<%= f.label :acuerdo, "#{t(:acuerdo)}"%>
+    	<%= f.radio_button :acuerdo, 'true', :checked => true %> Sí
+		<%= f.radio_button :acuerdo, 'false' %> No
+	</div>
+</div>
+
+  <hr class="separator" id="first_separator" style="display:none">
+
+<div id="second-block" style="display:none">
+  <div class="field">
+	<div class="block">
+  		<%= f.label :cedula_citacion, "#{t(:cedula_citacion)}:" %>
+		<%= f.file_field :cedula_citacion %>
+	</div>
+  </div>
+  <% unless @proceeding.new_record? %>
+	<% if  @old_proceeding.cedula_citacion.path != nil %>
+  		<div class="field">
+			<%= f.check_box :remove_cedula_citacion %>
+			<%= f.label :remove_cedula_citacion, "#{t(:remove_cedula_citacion)}:" %>
+			<%= nombre_archivo(:cedula_citacion, @old_proceeding) %>
+  		</div>
+	<% end %>
+  <% end %>
+  <div class="field">
+	<div class="block">
+  		<%= f.label :demanda, "#{t(:demanda)}:" %>
+		<%= f.file_field :demanda %>
+	</div>
+  </div>
+  <% unless @proceeding.new_record? %>
+	<% if  @old_proceeding.demanda.path != nil %>
+  		<div class="field">
+			<%= f.check_box :remove_demanda %>
+			<%= f.label :remove_demanda, "#{t(:remove_demanda)}:" %>
+			<%= nombre_archivo(:demanda, @old_proceeding) %>
+  		</div>
+	<% end %>
+  <% end %>
+  <div class="field">
+	<div class="block no-underline">
+		<%= f.label :conciliacion, "#{t(:conciliacion)}"%>
+    	<%= f.radio_button :conciliacion, 'true', :checked => true %> Sí
+		<%= f.radio_button :conciliacion, 'false' %> No
+	</div>
+	<div class="block derecha">
+  		<%= f.label :fecha_conciliacion, "#{t(:fecha_conciliacion)}:" %>
+		<%= f.text_field 	:fecha_conciliacion, 
+							:placeholder=>'dd', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:id => "proceeding_fecha_conciliacion_3i",
+							:name => "proceeding[fecha_conciliacion(3i)]" %>/
+		<%= f.text_field 	:fecha_conciliacion, 
+							:placeholder=>'mm', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:id => "proceeding_fecha_conciliacion_2i",
+							:name => "proceeding[fecha_conciliacion(2i)]" %>/
+		<%= f.text_field 	:fecha_conciliacion, 
+							:placeholder=>'aaaa', 
+							:class=>'short-4 center', 
+							:size => 4,
+							:id => "proceeding_fecha_conciliacion_1i",
+							:name => "proceeding[fecha_conciliacion(1i)]" %>
+		<%#= f.date_select :fecha_conciliacion %>
+	</div>
+  </div>
+</div>
+
+  <hr class="separator" id="second_separator" style="display:none">
+
+<div id="third-block" style="display:none">
+  <div class="field">
+    <div class="block">
+		<%= f.label :juzgado_numero, "#{t(:juzgado_numero)}:" %>
+    	<%= f.text_field :juzgado_numero, :size => 5 %>
+	</div>
+	<div class="block derecha">
+  		<%= f.label :fecha_juicio, "#{t(:fecha_juicio)}:" %>
+		<%= f.text_field 	:fecha_juicio, 
+							:placeholder=>'dd', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:id => "proceeding_fecha_juicio_3i",
+							:name => "proceeding[fecha_juicio(3i)]" %>/
+		<%= f.text_field 	:fecha_juicio, 
+							:placeholder=>'mm', 
+							:class=>'short-2 center', 
+							:size => 2,
+							:id => "proceeding_fecha_juicio_2i",
+							:name => "proceeding[fecha_juicio(2i)]" %>/
+		<%= f.text_field 	:fecha_juicio, 
+							:placeholder=>'aaaa', 
+							:class=>'short-4 center', 
+							:size => 4,
+							:id => "proceeding_fecha_juicio_1i",
+							:name => "proceeding[fecha_juicio(1i)]" %>
+	</div>
+	<%#= f.date_select :fecha_juicio %>
+  </div>
+  <div class="field">
+    <div class="block">
+		<%= f.label :demanda_numero, "#{t(:demanda_numero)}:" %>
+    	<%= f.text_field :demanda_numero %>
+	</div>
+  </div>
+  <div class="field">
+    <div class="block">
+		<%= f.label :sentencia, "#{t(:sentencia)}: " %>
+		<%= f.file_field :sentencia %>
+	</div>	
+ 
+    <div class="block derecha">
+  		<%= f.label :fecha_sentencia, "#{t(:fecha_sentencia)}:" %>
+		<%= f.text_field 	:fecha_sentencia, 
+						  	:placeholder=>'dd', 
+							:class=>'short-2 center', 
+							:size => 2, 
+							:id =>"proceeding_fecha_sentencia_3i", 
+							:name =>"proceeding[fecha_sentencia(3i)]" %>/
+		<%= f.text_field 	:fecha_sentencia, 
+							:placeholder=>'mm', 
+							:class=>'short-2 center', 
+							:size => 2, 
+							:id =>"proceeding_fecha_sentencia_2i", 
+							:name =>"proceeding[fecha_sentencia(2i)]" %>/
+		<%= f.text_field 	:fecha_sentencia, 
+							:placeholder=>'aaaa', 
+							:class=>'short-4 center', 
+							:size => 4, 
+							:id =>"proceeding_fecha_sentencia_1i", 
+							:name =>"proceeding[fecha_sentencia(1i)]" %>
+	</div>
+  </div>
+  <% unless @proceeding.new_record? %>
+	<% if  @old_proceeding.sentencia.path != nil %>
+  		<div class="field">
+			<%= f.check_box :remove_sentencia %>
+			<%= f.label :remove_sentencia, "#{t(:remove_sentencia)}:" %>
+			<%= nombre_archivo(:sentencia, @old_proceeding) %>
+  		</div>
+	<% end %>
+  <% end %>
+</div>
+
+  <div class="actions">
+    <%= f.submit @proceeding.new_record? ? t(:create_proceeding) : t(:update_proceeding) %>
+  </div>
+<% end %>
+
+
+<script>
+	$(document).ready(function(){
+		//Start Form (update)
+		if ($('#proceeding_acuerdo_false').is(':checked')){
+			$('#second-block').show('slow');
+			$('#first_separator').show('slow');
+		}
+		if ($('#proceeding_conciliacion_false').is(':checked')){
+			$('#third-block').show('slow');
+			$('#second_separator').show('slow');
+		}
+		
+		$('#proceeding_acuerdo_false').click(function(){
+			$('#second-block').show('slow');
+			$('#first_separator').show('slow');
+			if ($('#proceeding_conciliacion_false').is(':checked')){
+				$('#third-block').show('slow');
+				$('#second_separator').show('slow');
+			}
+		});
+		if ($('#proceeding_dni').val().length > 0){
+			var dni = $('#proceeding_dni').val().replace(" ", "").replace(/\-/g,"").replace(/\./g,"")
+			if (!isDNI(dni)){
+				$('#proceeding_dni').val("");
+			}
+		}
+		
+		$('#proceeding_acuerdo_true').click(function(){
+			$('#second-block').hide('slow');
+			$('#third-block').hide('slow');
+			$('#first_separator').hide('slow');
+			$('#second_separator').hide('slow');
+		});
+		
+		$('#proceeding_conciliacion_false').click(function(){
+			$('#third-block').show('slow');
+			$('#second_separator').show('slow');
+		});
+		
+		$('#proceeding_conciliacion_true').click(function(){
+			$('#third-block').hide('slow');
+			$('#second_separator').hide('slow');
+		});
+		
+		$('#proceeding_fecha_despido_3i').blur(function(){ //DIA
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 32) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+			
+			
+			var mes = $('#proceeding_fecha_despido_2i').val();
+			var ano = $('#proceeding_fecha_despido_1i').val();
+			if (mes.length != 0 && ano.length != 0 && mes > 0 && mes < 13 && ano > 0){
+				var dia = $('#proceeding_fecha_despido_3i').val();
+				if (dia.length != 0 && dia > 0 && dia < 32){
+					var urlAPI = "/get_number_identifier/" + dia + "/" + mes + "/" + ano;
+					$.getJSON( urlAPI, {
+					    format: "json"
+					  }).done(function( data ) {
+							console.log(data);
+							if (data < 10)
+								data = "0"+data;
+							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#valueExp").html("" + ano + mes + dia + data);
+					  });
+				}
+			}
+		});
+		$('#proceeding_fecha_despido_2i').blur(function(){ //MES
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 13) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+			
+			
+			var dia = $('#proceeding_fecha_despido_3i').val();
+			var ano = $('#proceeding_fecha_despido_1i').val();
+			if (dia.length != 0 && ano.length != 0 && dia > 0 && dia < 32 && ano > 0){
+				var mes = $('#proceeding_fecha_despido_2i').val();
+				if (mes.length != 0 && mes > 0 && mes < 13){
+					var urlAPI = "/get_number_identifier/" + dia + "/" + mes + "/" + ano;
+					$.getJSON( urlAPI, {
+					    format: "json"
+					  }).done(function( data ) {
+							console.log(data);
+							if (data < 10)
+								data = "0"+data;
+							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#valueExp").html("" + ano + mes + dia + data);
+					  });
+				}
+			}
+		});
+		$('#proceeding_fecha_despido_1i').blur(function(){ //AÑO
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 1000) {
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+			
+			var mes = $('#proceeding_fecha_despido_2i').val();
+			var dia = $('#proceeding_fecha_despido_3i').val();
+			if (mes.length != 0 && dia.length != 0 && mes > 0 && mes < 13 && dia > 0 && dia < 32){
+				var ano = $('#proceeding_fecha_despido_1i').val();
+				if (ano.length != 0 && ano > 0){
+					var urlAPI = "/get_number_identifier/" + dia + "/" + mes + "/" + ano;
+					$.getJSON( urlAPI, {
+					    format: "json"
+					  }).done(function( data ) {
+							console.log(data);
+							if (data < 10)
+								data = "0"+data;
+							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#valueExp").html("" + ano + mes + dia + data);
+					  });
+				}
+			}
+		});
+		
+		$('#proceeding_fecha_conciliacion_3i').blur(function(){ //DIA
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 32) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_juicio_3i').blur(function(){ //DIA
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 32) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_sentencia_3i').blur(function(){ //DIA
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 32) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_conciliacion_2i').blur(function(){ //MES
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 13) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_juicio_2i').blur(function(){ //MES
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 13) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_sentencia_2i').blur(function(){ //MES
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 0) {
+					if ($(this).val() < 13) {
+						if ($(this).val().length != 2) {
+							$(this).val("");
+						}
+					} else {
+						$(this).val("");
+					}
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_conciliacion_1i').blur(function(){ //AÑO
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 1000) {
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_juicio_1i').blur(function(){ //AÑO
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 1000) {
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		$('#proceeding_fecha_sentencia_1i').blur(function(){ //AÑO
+			if ($(this).val().length > 0) {
+				if ($(this).val() > 1000) {
+				} else {
+					$(this).val("");
+				}
+			} else {
+				$(this).val("");
+			}
+		});
+		
+		$('#proceeding_dni').blur(function(){
+			var dni = $(this).val().replace(" ", "").replace(/\-/g,"").replace(/\./g,"")
+			if (!isDNI(dni)){
+				$(this).val("");
+			}
+		})
+	});
+</script>

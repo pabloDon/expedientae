@@ -1,0 +1,79 @@
+<% content_for :head do %>
+	Editar expediente
+<% end %>
+
+<%= render 'form' %>
+
+<% content_for :extra_options do %>
+	<li><%= link_to "Volver a listado", proceedings_path %></li>
+	<li><%= link_to 'Volver a expediente', proceeding_path %></li>
+	<li><%= link_to 'Nuevo expediente', new_proceeding_path %></li>
+<% end %>
+
+<script>
+	$(document).ready(function(){
+		//Fecha de despido
+		var dia = $("#proceeding_fecha_despido_1i").val()
+		var mes = $("#proceeding_fecha_despido_2i").val()
+		var ano = $("#proceeding_fecha_despido_3i").val()
+		
+		if (mes.length != 0)
+			mes = mes.split('-')[1]
+		if (dia.length != 0)
+			dia = dia.split('-')[0]
+		if (ano.length != 0)
+			ano = ano.split('-')[2]
+		
+		$("#proceeding_fecha_despido_1i").val(dia)
+		$("#proceeding_fecha_despido_2i").val(mes)
+		$("#proceeding_fecha_despido_3i").val(ano)
+		
+		//Fecha de conciliación
+		var dia = $("#proceeding_fecha_conciliacion_1i").val()
+		var mes = $("#proceeding_fecha_conciliacion_2i").val()
+		var ano = $("#proceeding_fecha_conciliacion_3i").val()
+		
+		if (mes.length != 0)
+			mes = mes.split('-')[1]
+		if (dia.length != 0)
+			dia = dia.split('-')[0]
+		if (ano.length != 0)
+			ano = ano.split('-')[2]
+		
+		$("#proceeding_fecha_conciliacion_1i").val(dia)
+		$("#proceeding_fecha_conciliacion_2i").val(mes)
+		$("#proceeding_fecha_conciliacion_3i").val(ano)
+		
+		//Fecha de juicio
+		var dia = $("#proceeding_fecha_juicio_1i").val()
+		var mes = $("#proceeding_fecha_juicio_2i").val()
+		var ano = $("#proceeding_fecha_juicio_3i").val()
+		
+		if (mes.length != 0)
+			mes = mes.split('-')[1]
+		if (dia.length != 0)
+			dia = dia.split('-')[0]
+		if (ano.length != 0)
+			ano = ano.split('-')[2]
+		
+		$("#proceeding_fecha_juicio_1i").val(dia)
+		$("#proceeding_fecha_juicio_2i").val(mes)
+		$("#proceeding_fecha_juicio_3i").val(ano)
+		
+		//Fecha de sentencia
+		var dia = $("#proceeding_fecha_sentencia_1i").val()
+		var mes = $("#proceeding_fecha_sentencia_2i").val()
+		var ano = $("#proceeding_fecha_sentencia_3i").val()
+		
+		if (mes.length != 0)
+			mes = mes.split('-')[1]
+		if (dia.length != 0)
+			dia = dia.split('-')[0]
+		if (ano.length != 0)
+			ano = ano.split('-')[2]
+		
+		$("#proceeding_fecha_sentencia_1i").val(dia)
+		$("#proceeding_fecha_sentencia_2i").val(mes)
+		$("#proceeding_fecha_sentencia_3i").val(ano)
+	})
+</script>

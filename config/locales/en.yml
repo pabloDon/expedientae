@@ -1,0 +1,54 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  num_expediente: Número expediente
+  num_expediente_short: Nº expediente
+  nombre: Nombre
+  apellidos: Apellidos
+  edad: Edad
+  sexo: Sexo
+  dni: Nº DNI
+  asunto: Asunto
+  fecha_despido: Fecha de despido
+  fecha_conciliacion: Fecha de conciliación
+  conciliacion: ¿Conciliación?
+  juzgado_numero: Juzgado nº
+  fecha_juicio: Fecha de juicio
+  demanda_numero: Demanda nº
+  fecha_sentencia: Fecha sentencia
+  create_proceeding: Crear expediente
+  update_proceeding: Actualizar expediente
+  carta_despido: Carta de despido
+  finiquito: Finiquito
+  cedula_citacion: Cédula de citación
+  demanda: Demanda
+  sentencia: Sentencia
+  acuerdo: ¿Acuerdo?
+  hombre: Hombre
+  mujer: Mujer
+  search_button: Buscar
+  print_button: Imprimir
+  remove_carta_despido: Eliminar carta despido
+  remove_finiquito: Eliminar finiquito
+  remove_cedula_citacion: Eliminar cedula citación
+  remove_demanda: Eliminar demanda
+  remove_sentencia: Eliminar sentencia

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numExpediente: MyString
+  nombre: MyString
+  apellidos: MyString
+  edad: 1
+  sexo: false
+  dni: MyString
+  asunto: 1
+  fecha_despido: 2014-11-24
+  fecha_conciliacion: 2014-11-24
+  conciliacion: false
+  juzgado_numero: MyString
+  fecha_juicio: 2014-11-24
+  demanda_numero: MyString
+  fecha_sentencia: 2014-11-24
+
+two:
+  numExpediente: MyString
+  nombre: MyString
+  apellidos: MyString
+  edad: 1
+  sexo: false
+  dni: MyString
+  asunto: 1
+  fecha_despido: 2014-11-24
+  fecha_conciliacion: 2014-11-24
+  conciliacion: false
+  juzgado_numero: MyString
+  fecha_juicio: 2014-11-24
+  demanda_numero: MyString
+  fecha_sentencia: 2014-11-24

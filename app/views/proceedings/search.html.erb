@@ -1,0 +1,47 @@
+<% content_for :head do %>
+	Búsqueda
+<% end %>
+<% content_for :extra_options do %>
+	<li><%= link_to 'Nuevo expediente', new_proceeding_path %></li>
+	<li><%= link_to "Volver a listado", proceedings_path %></li>
+<% end %>
+
+
+<%= form_tag '/search', {:method => :post, :class => "search_form"} do %>
+	<div class="block">
+		<%= text_field_tag :num_expediente, params[:num_expediente], :placeholder => t(:num_expediente_short), :size => 10 %>
+	</div>
+	<div class="block">
+		<%= text_field_tag :nombre, params[:nombre], :placeholder => t(:nombre), :size => 10 %>
+	</div>
+	<div class="block">
+		<%= text_field_tag :apellidos, params[:apellidos], :placeholder => t(:apellidos) , :size => 20%>
+	</div>
+	<%= radio_button_tag :asunto, '0', params[:asunto] == '0' %> <%= label_tag :asunto_0, "Despido objetivo" %>
+	<%= radio_button_tag :asunto, '1', params[:asunto] == '1' %> <%= label_tag :asunto_1, "Despido disciplinario" %>
+
+	<%= submit_tag t(:search_button), :style=>"display:none"%>
+<% end %>
+
+
+<% if @proceedings.empty? %>
+	<% if params[:name] or params[:apellidos] or params[:num_expediente] %>
+		<h2>Sin resultados</h2>
+	<% else %>
+		<h2>Inserta los valores de búsqueda</h2>
+	<% end %>
+<% else %>
+	<hr class="separator" style="margin:1em 0">
+	<% @proceedings.each do |proceeding| %>
+		<a class="rowlink" href="<%= proceeding_path proceeding %>">
+			<div class="row">
+				<span class="num-expediente"><%= proceeding.numExpediente %></span>
+				<span class="nombre"><%= proceeding.nombre %></span>
+				<span class="apellidos"><%= proceeding.apellidos %></span>
+				<span class="asunto">Despido <%= proceeding.asunto == 0 ? "objetivo" : "disciplinario" %></span>
+			</div>
+		</a>
+	<% end %>
+	
+	<%= link_to t(:print_button), '#', :onclick => 'window.print();return false;', :class => "print_button"%>
+<% end %>

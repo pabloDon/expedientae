@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require font-awesome
+ *= require_self
+ */
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+}
+html {
+	margin: 0;
+}
+body {
+	margin: 0;
+	background: #F2F1EF;
+}
+
+h1 {
+	font-weight: 400;
+	font-size: 1.9em;
+}
+a {
+	text-decoration: none;
+}
+a:hover{
+	background-color: transparent;
+	text-decoration: underline;
+	color: black;
+}
+a:visited{
+	color: black;
+}
+ul.horizontal-list, ul.horizontal-list li {
+	display: inline-block;
+	margin: 0 .3em;
+}
+ul.no-icon {
+	list-style: none;
+}
+.title h1{
+	line-height: 1.9em;
+	display: inline-block;
+	margin: .1em 0;
+	margin-left: 1em;
+}
+.fix-header{
+	background-color: #1A687D;
+	position: fixed;
+	width: 100%;
+	min-width: 700px;
+	color: white;
+	box-shadow: 0 4px 4px -2px #232323;
+	-moz-box-shadow: 0 4px 4px -2px #232323;
+	-webkit-box-shadow: 0 4px 4px -2px #232323;
+}
+.fix-header a{
+	color: white;
+}
+.fix-header a:visited{
+	color: white;
+}
+.fix-header ul{
+	margin: 1.5em 0;
+	float: right;
+	margin-right: 3em;
+}
+
+.wrapper {
+	margin: 0 auto;
+	min-width: 700px;
+	max-width: 800px;
+	padding-top: 5em;
+	margin-bottom: 5em;
+}
+
+p#notice{
+	text-align: center;
+	padding: .6em 0;
+	border-radius: 99em;
+	background-color: #87E489;
+	color: #1A687D;
+}
+
+.cursiva {
+	font-style: italic;
+}
+
+.print_button{
+	margin: 1em .3em;
+	padding: 0.2em .3em;
+	font-weight: 400;
+	background-color: #6BB9F0;
+	color: black;
+	border-radius: .3em;
+	float: right;
+}
+.print_button:hover, .print_button:active{
+	margin: 1em .3em;
+	padding: 0.2em .3em;
+	font-weight: 400;
+	background-color: #1E8BC3;
+	color: black;
+	border-radius: .3em;
+	float: right;
+	text-decoration: none;
+}
+
+
+@media print{    
+    .print_button, .no-print {
+        display: none !important;
+    }
+}

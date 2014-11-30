@@ -1,0 +1,144 @@
+<% content_for :head do %>
+	Expediente nº <%= @proceeding.numExpediente %>
+<% end %>
+<% content_for :extra_options do %>
+	<li><%= link_to "Volver a listado", proceedings_path %></li>
+	<li><%= link_to 'Editar', edit_proceeding_path %></li>
+	<li><%= link_to 'Nuevo expediente', new_proceeding_path %></li>
+<% end %>
+
+<% if notice %>
+<p id="notice" class="no-print"><%= notice %></p>
+<% end %>
+
+<div id="first-block">
+  <div class="field">
+	<h2><%= label_tag :numExpediente, "#{t(:num_expediente)}:" %> <%= @proceeding.numExpediente %></h2>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= label_tag :nombre, "#{t(:nombre)}:" %>
+    	<%= @proceeding.nombre %>
+	</div>
+	<div class="block" style="margin-left:2em">
+		<%= label_tag :apellidos, "#{t(:apellidos)}:" %>
+    	<%= @proceeding.apellidos %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= label_tag :edad, "#{t(:edad)}:" %>
+    	<%= @proceeding.edad %>
+	</div>
+  
+	<div class="block" style="margin-left:10em">
+  	<%= label_tag :sexo, "#{t(:sexo)}:" %>
+	<%= @proceeding.sexo ? t(:hombre) : t(:mujer) %>
+	</div>
+  	
+	<div class="block derecha">
+		<%= label_tag :dni, "#{t(:dni)}:" %>
+    	<%= @proceeding.dni %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= label_tag :asunto, "#{t(:asunto)}:" %>
+    	Despido <%= @proceeding.asunto == 0 ? "objetivo" : "disciplinario" %>
+	</div>
+    
+  	<div class="block derecha">
+  		<%= label_tag :fecha_despido, "#{t(:fecha_despido)}:" %>
+		<%= @proceeding.fecha_despido.strftime "%d/%m/%Y" if @proceeding.fecha_despido? %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+  		<%= label_tag :carta_despido, "#{t(:carta_despido)}:" %>
+		<% if @proceeding.carta_despido?%>
+			<%= link_to "<i class='fa fa-file-o'></i>".html_safe , @proceeding.carta_despido.url, :target => "_blank" %>
+		<% end %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+  		<%= label_tag :finiquito, "#{t(:finiquito)}:" %>
+		<% if @proceeding.finiquito?%>
+			<%= link_to "<i class='fa fa-file-o'></i>".html_safe , @proceeding.finiquito.url, :target => "_blank" %>
+		<% end %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= label_tag :acuerdo, "#{t(:acuerdo)}"%>
+		<%= @proceeding.acuerdo ? "Sí" : "No" %>
+	</div>
+</div>
+<% if not @proceeding.acuerdo %>
+  <hr class="separator">
+
+<div id="second-block">
+  <div class="field">
+	<div class="block">
+  		<%= label_tag :cedula_citacion, "#{t(:cedula_citacion)}:" %>
+		<% if @proceeding.cedula_citacion? %>
+			<%= link_to "<i class='fa fa-file-o'></i>".html_safe , @proceeding.cedula_citacion.url, :target => "_blank" %>
+		<% end %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+  		<%= label_tag :demanda, "#{t(:demanda)}:" %>
+		<% if @proceeding.demanda? %>
+			<%= link_to "<i class='fa fa-file-o'></i>".html_safe , @proceeding.demanda.url, :target => "_blank" %>
+		<% end %>
+	</div>
+  </div>
+  <div class="field">
+	<div class="block">
+		<%= label_tag :conciliacion, "#{t(:conciliacion)}"%>
+    	<%= @proceeding.conciliacion ? "Sí" : "No" %>
+	</div>
+	<div class="block derecha">
+  		<%= label_tag :fecha_conciliacion, "#{t(:fecha_conciliacion)}:" %>
+		<%= @proceeding.fecha_conciliacion.strftime "%d/%m/%Y" if @proceeding.fecha_conciliacion? %>
+	</div>
+  </div>
+</div>
+<% if not @proceeding.conciliacion %>
+  <hr class="separator">
+
+<div id="third-block">
+  <div class="field">
+    <div class="block">
+		<%= label_tag :juzgado_numero, "#{t(:juzgado_numero)}:" %>
+    	<%= @proceeding.juzgado_numero %>
+	</div>
+	<div class="block derecha">
+  		<%= label_tag :fecha_juicio, "#{t(:fecha_juicio)}:" %>
+		<%= @proceeding.fecha_juicio.strftime "%d/%m/%Y" if @proceeding.fecha_juicio? %>
+	</div>
+  </div>
+  <div class="field">
+    <div class="block">
+		<%= label_tag :demanda_numero, "#{t(:demanda_numero)}:" %>
+    	<%= @proceeding.demanda_numero %>
+	</div>
+  </div>
+  <div class="field">
+    <div class="block">
+		<%= label_tag :sentencia, "#{t(:sentencia)}:" %>
+		<% if @proceeding.sentencia? %>
+			<%= link_to "<i class='fa fa-file-o'></i>".html_safe , @proceeding.sentencia.url, :target => "_blank" %>
+		<% end %>
+	</div>	
+ 
+    <div class="block derecha">
+  		<%= label_tag :fecha_sentencia, "#{t(:fecha_sentencia)}:" %>
+		<%= @proceeding.fecha_sentencia.strftime "%d/%m/%Y" if @proceeding.fecha_sentencia? %>
+	</div>
+  </div>
+</div>
+<% end %>
+<% end %>
+<%= link_to t(:print_button), '#', :onclick => 'window.print();return false;', :class => "print_button"%>

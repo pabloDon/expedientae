@@ -1,0 +1,17 @@
+<% content_for :head do %>
+	Expedientes
+<% end %>
+<% content_for :extra_options do %>
+	<li><%= link_to 'Nuevo expediente', new_proceeding_path %></li>
+<% end %>
+
+<% @proceedings.each do |proceeding| %>
+	<a class="rowlink" href="<%= proceeding_path proceeding %>">
+		<div class="row">
+			<span class="num-expediente"><%= proceeding.numExpediente %></span>
+			<span class="nombre"><%= proceeding.nombre %></span>
+			<span class="apellidos"><%= proceeding.apellidos %></span>
+			<span class="asunto">Despido <%= proceeding.asunto == 0 ? "objetivo" : "disciplinario" %></span>
+		</div>
+	</a>
+<% end %>
