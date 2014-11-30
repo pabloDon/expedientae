@@ -104,24 +104,24 @@ class ProceedingsController < ApplicationController
     if params[:nombre] or params[:apellidos] or params[:num_expediente] or params[:asunto]
       query = ""
       values = {}
-      unless params[:nombre].empty?
+      if not params[:nombre].nil? and not params[:nombre].empty?
         query += "nombre LIKE :nombre " 
         values[:nombre] = "%#{params[:nombre]}%"
       end
       
-      unless params[:apellidos].empty?
+      if not params[:apellidos].nil? and not params[:apellidos].empty?
         query += " AND " unless params[:nombre].empty?
         query += "apellidos LIKE :apellidos " 
         values[:apellidos] = "%#{params[:apellidos]}%"
       end
       
-      unless params[:num_expediente].empty?
+      if not params[:num_expediente].nil? and not params[:num_expediente].empty?
         query += " AND " unless params[:nombre].empty? and params[:apellidos].empty?
         query += "num_expediente LIKE :num_expediente " 
         values[:num_expediente] = "%#{params[:num_expediente]}%"
       end
       
-      unless params[:asunto].empty?
+      if not params[:asunto].nil? and not params[:asunto].empty?
         query += " AND " unless params[:nombre].empty? and params[:apellidos].empty? and params[:num_expediente].empty?
         query += "asunto = #{params[:asunto]} " 
         values[:num_expediente] = "%#{params[:num_expediente]}%"
