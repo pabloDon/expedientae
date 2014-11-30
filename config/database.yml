@@ -23,7 +23,7 @@ test:
 production:
     adapter: postgresql
     encoding: unicode
-    database: expedientae_production
+    database: d82ucvq5ogetn7
     pool: 5
-    username: myapp
-    password:
+    username: yptgyctmtmdbbk
+    password: N85tXQfs-nsoNbY_r5IjTzWqTs
