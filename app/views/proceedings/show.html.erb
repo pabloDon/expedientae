@@ -141,4 +141,12 @@
 </div>
 <% end %>
 <% end %>
-<%= link_to t(:print_button), '#', :onclick => 'window.print();return false;', :class => "print_button"%>
+<%= link_to t(:print_button), 
+			'#', 
+			:onclick => 'window.print();return false;', 
+			:class => "print_button"%>
+<%= link_to t(:delete_button), 
+			delete_proceeding_path(@proceeding.id), 
+			data: { confirm: t(:confirm_delete) }, 
+			:class=>"delete_button"
+%>

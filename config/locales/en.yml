@@ -47,8 +47,10 @@ en:
   mujer: Mujer
   search_button: Buscar
   print_button: Imprimir
+  delete_button: Eliminar
   remove_carta_despido: Eliminar carta despido
   remove_finiquito: Eliminar finiquito
   remove_cedula_citacion: Eliminar cedula citación
   remove_demanda: Eliminar demanda
   remove_sentencia: Eliminar sentencia
+  confirm_delete: ¿Estás seguro de querer eliminarlo?

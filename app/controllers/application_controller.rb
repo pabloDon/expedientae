@@ -31,6 +31,9 @@ class ApplicationController < ActionController::Base
           flash[:notice] = "Sesión expirada. Inicia sesión nuevamente"
           redirect_to login_url
           return false
+        else
+          current_user.current_login_at = Time.now
+          current_user.save
         end
       end
     end
@@ -39,7 +42,7 @@ class ApplicationController < ActionController::Base
       if current_user
         store_location
         flash[:notice] = "Debes cerrar sesión para acceder a esta página"
-        redirect_to account_url
+        redirect_to root_url
         return false
       end
     end

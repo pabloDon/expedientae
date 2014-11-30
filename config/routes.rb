@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :proceedings
   
   resources :user_sessions
-  resource :account, :controller => "users"
   resources :users
   
+  get 'delete_proceeding/:id' => 'proceedings#destroy', as: :delete_proceeding
   get 'search' => 'proceedings#search', as: :search
   post 'search' => 'proceedings#search', as: :make_search
   get 'login' => 'user_sessions#new', as: :login
