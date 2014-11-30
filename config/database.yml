@@ -23,8 +23,8 @@ test:
   production:
     adapter: postgresql
     encoding: unicode
-    database: ddud31bkdspgn1
-    username: xrijtqearpgpie
-    password: nyzBptG-TGzQULqxp8FkuN3gMb
+    database: <%= ENV['DATABASE_NAME'] %>
+    username: <%= ENV['DATABASE_USERNAME'] %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    url: <%= ENV['DATABASE_URL'] %>
     port: 5432
-    url: postgres://xrijtqearpgpie:nyzBptG-TGzQULqxp8FkuN3gMb@ec2-54-163-248-144.compute-1.amazonaws.com:5432/ddud31bkdspgn1
