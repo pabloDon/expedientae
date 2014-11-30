@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   root 'proceedings#index'
   resources :proceedings
   
+  resources :user_sessions
+  resource :account, :controller => "users"
+  resources :users
+  
   get 'search' => 'proceedings#search', as: :search
   post 'search' => 'proceedings#search', as: :make_search
+  get 'login' => 'user_sessions#new', as: :login
+  get 'logout' => 'user_sessions#destroy', as: :logout
   
   get 'get_number_identifier/:day/:month/:year' => 'proceedings#get_number_identifier', as: :get_number_identifier
 

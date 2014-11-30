@@ -1,0 +1,20 @@
+<% content_for :head do %>
+	Login
+<% end %>
+
+<%= form_for @user_session do |f| %>
+ 
+<div class="field">
+	<div class="block">
+  		<%= f.text_field :login, :placeholder => "Login" %>
+	</div>
+</div>
+<div class="field">
+	<div class="block">
+  		<%= f.password_field :password, :placeholder => "Password" %>
+	</div>
+</div>
+<div class="actions">
+  <%= f.submit "Login" %>
+</div>
+<% end %>

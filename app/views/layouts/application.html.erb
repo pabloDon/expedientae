@@ -13,10 +13,10 @@
 			<span class="title">
 				<h1><%= yield :head %></h1>
 			</span>
-			<ul class="horizontal-list no-icon no-print">
+			<ul class="horizontal-list no-icon no-print" style="<%= "display:none" unless current_user %>">
 				<%= yield :extra_options %> | 
 				<li><%= link_to "Búsqueda", search_path %></li>
-				<li><a href="#">Salir</a></li>
+				<li><%= link_to "Salir", logout_path %></li>
 		</div>
 		<div class="wrapper">	
 			<%= yield %>

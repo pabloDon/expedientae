@@ -1,4 +1,7 @@
-input[type="text"], input[type="number"]{
+h2#empty-record{
+	font-size: 1.5em;
+}
+input[type="text"], input[type="number"], input[type="password"]{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	border: none;

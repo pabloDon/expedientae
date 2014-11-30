@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129134009) do
+ActiveRecord::Schema.define(version: 20141130153250) do
 
   create_table "proceedings", force: true do |t|
     t.string   "num_expediente"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 20141129134009) do
     t.string   "cedula_citacion"
     t.string   "demanda"
     t.string   "sentencia"
+  end
+
+  create_table "user_sessions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "current_login_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

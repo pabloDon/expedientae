@@ -4,7 +4,9 @@
 <% content_for :extra_options do %>
 	<li><%= link_to 'Nuevo expediente', new_proceeding_path %></li>
 <% end %>
-
+<% if @proceedings.empty? %>
+	<h2 class="center" id="empty-record">Sin registros</h2>
+<% end %>
 <% @proceedings.each do |proceeding| %>
 	<a class="rowlink" href="<%= proceeding_path proceeding %>">
 		<div class="row">

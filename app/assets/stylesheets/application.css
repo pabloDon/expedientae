@@ -116,6 +116,9 @@ p#notice{
 	float: right;
 	text-decoration: none;
 }
+.center{
+	text-align:center;
+}
 
 
 @media print{    

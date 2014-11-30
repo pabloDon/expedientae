@@ -1,5 +1,6 @@
 class ProceedingsController < ApplicationController
   before_action :set_proceeding, only: [:show, :edit, :update, :destroy]
+  before_filter :require_user
 
   # GET /proceedings
   # GET /proceedings.json
