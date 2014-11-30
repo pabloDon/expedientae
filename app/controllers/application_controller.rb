@@ -19,11 +19,19 @@ class ApplicationController < ActionController::Base
     end
   
     def require_user
+      url_redireccion = login_url
       unless current_user
         store_location
-        flash[:notice] = "Debes acceder para acceder a esta página"
-        redirect_to login_url
+        flash[:notice] = "Debes iniciar sesión para acceder a esta página"
+        
         return false
+      end
+      if current_user
+        if (Time.now - current_user.current_login_at > 15.minutes)
+          store_location
+          flash[:notice] = "Sesión expirada. Inicia sesión nuevamente"
+          return false
+        end
       end
     end
   
