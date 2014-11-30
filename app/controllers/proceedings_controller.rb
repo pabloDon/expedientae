@@ -4,7 +4,7 @@ class ProceedingsController < ApplicationController
   # GET /proceedings
   # GET /proceedings.json
   def index
-    @proceedings = Proceeding.all.order('numExpediente desc')
+    @proceedings = Proceeding.all.order('num_expediente desc')
   end
 
   # GET /proceedings/1
@@ -85,7 +85,7 @@ class ProceedingsController < ApplicationController
     
     @counter = -1
     if proceeding != nil
-      @counter = proceeding.numExpediente[8..9].to_i + 1
+      @counter = proceeding.num_expediente[8..9].to_i + 1
     else
       @counter = 1
     end
@@ -116,17 +116,17 @@ class ProceedingsController < ApplicationController
       
       unless params[:num_expediente].empty?
         query += " AND " unless params[:nombre].empty? and params[:apellidos].empty?
-        query += "numExpediente LIKE :numExpediente " 
-        values[:numExpediente] = "%#{params[:num_expediente]}%"
+        query += "num_expediente LIKE :num_expediente " 
+        values[:num_expediente] = "%#{params[:num_expediente]}%"
       end
       
       unless params[:asunto].empty?
         query += " AND " unless params[:nombre].empty? and params[:apellidos].empty? and params[:num_expediente].empty?
         query += "asunto = #{params[:asunto]} " 
-        values[:numExpediente] = "%#{params[:num_expediente]}%"
+        values[:num_expediente] = "%#{params[:num_expediente]}%"
       end
       
-      @proceedings = Proceeding.where(query, values).order('numExpediente')
+      @proceedings = Proceeding.where(query, values).order('num_expediente')
     end
   end
 
@@ -138,7 +138,7 @@ class ProceedingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proceeding_params
-      params.require(:proceeding).permit( :numExpediente, 
+      params.require(:proceeding).permit( :num_expediente, 
                                           :nombre, 
                                           :apellidos, 
                                           :edad, 

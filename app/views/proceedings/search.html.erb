@@ -35,7 +35,7 @@
 	<% @proceedings.each do |proceeding| %>
 		<a class="rowlink" href="<%= proceeding_path proceeding %>">
 			<div class="row">
-				<span class="num-expediente"><%= proceeding.numExpediente %></span>
+				<span class="num-expediente"><%= proceeding.num_expediente %></span>
 				<span class="nombre"><%= proceeding.nombre %></span>
 				<span class="apellidos"><%= proceeding.apellidos %></span>
 				<span class="asunto">Despido <%= proceeding.asunto == 0 ? "objetivo" : "disciplinario" %></span>

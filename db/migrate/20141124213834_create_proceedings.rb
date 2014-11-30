@@ -1,7 +1,7 @@
 class CreateProceedings < ActiveRecord::Migration
   def change
     create_table :proceedings do |t|
-      t.string :numExpediente
+      t.string :num_expediente
       t.string :nombre
       t.string :apellidos
       t.integer :edad

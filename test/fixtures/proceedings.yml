@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  numExpediente: MyString
+  num_expediente: MyString
   nombre: MyString
   apellidos: MyString
   edad: 1
@@ -17,7 +17,7 @@ one:
   fecha_sentencia: 2014-11-24
 
 two:
-  numExpediente: MyString
+  num_expediente: MyString
   nombre: MyString
   apellidos: MyString
   edad: 1

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20141129134009) do
 
   create_table "proceedings", force: true do |t|
-    t.string   "numExpediente"
+    t.string   "num_expediente"
     t.string   "nombre"
     t.string   "apellidos"
     t.integer  "edad"

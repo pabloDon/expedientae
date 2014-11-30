@@ -1,5 +1,5 @@
 <% content_for :head do %>
-	Expediente nº <%= @proceeding.numExpediente %>
+	Expediente nº <%= @proceeding.num_expediente %>
 <% end %>
 <% content_for :extra_options do %>
 	<li><%= link_to "Volver a listado", proceedings_path %></li>
@@ -13,7 +13,7 @@
 
 <div id="first-block">
   <div class="field">
-	<h2><%= label_tag :numExpediente, "#{t(:num_expediente)}:" %> <%= @proceeding.numExpediente %></h2>
+	<h2><%= label_tag :num_expediente, "#{t(:num_expediente)}:" %> <%= @proceeding.num_expediente %></h2>
   </div>
   <div class="field">
 	<div class="block">

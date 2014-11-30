@@ -18,7 +18,7 @@ class ProceedingsControllerTest < ActionController::TestCase
 
   test "should create proceeding" do
     assert_difference('Proceeding.count') do
-      post :create, proceeding: { apellidos: @proceeding.apellidos, asunto: @proceeding.asunto, conciliacion: @proceeding.conciliacion, demanda_numero: @proceeding.demanda_numero, dni: @proceeding.dni, edad: @proceeding.edad, fecha_conciliacion: @proceeding.fecha_conciliacion, fecha_despido: @proceeding.fecha_despido, fecha_juicio: @proceeding.fecha_juicio, fecha_sentencia: @proceeding.fecha_sentencia, juzgado_numero: @proceeding.juzgado_numero, nombre: @proceeding.nombre, numExpediente: @proceeding.numExpediente, sexo: @proceeding.sexo }
+      post :create, proceeding: { apellidos: @proceeding.apellidos, asunto: @proceeding.asunto, conciliacion: @proceeding.conciliacion, demanda_numero: @proceeding.demanda_numero, dni: @proceeding.dni, edad: @proceeding.edad, fecha_conciliacion: @proceeding.fecha_conciliacion, fecha_despido: @proceeding.fecha_despido, fecha_juicio: @proceeding.fecha_juicio, fecha_sentencia: @proceeding.fecha_sentencia, juzgado_numero: @proceeding.juzgado_numero, nombre: @proceeding.nombre, num_expediente: @proceeding.num_expediente, sexo: @proceeding.sexo }
     end
 
     assert_redirected_to proceeding_path(assigns(:proceeding))
@@ -35,7 +35,7 @@ class ProceedingsControllerTest < ActionController::TestCase
   end
 
   test "should update proceeding" do
-    patch :update, id: @proceeding, proceeding: { apellidos: @proceeding.apellidos, asunto: @proceeding.asunto, conciliacion: @proceeding.conciliacion, demanda_numero: @proceeding.demanda_numero, dni: @proceeding.dni, edad: @proceeding.edad, fecha_conciliacion: @proceeding.fecha_conciliacion, fecha_despido: @proceeding.fecha_despido, fecha_juicio: @proceeding.fecha_juicio, fecha_sentencia: @proceeding.fecha_sentencia, juzgado_numero: @proceeding.juzgado_numero, nombre: @proceeding.nombre, numExpediente: @proceeding.numExpediente, sexo: @proceeding.sexo }
+    patch :update, id: @proceeding, proceeding: { apellidos: @proceeding.apellidos, asunto: @proceeding.asunto, conciliacion: @proceeding.conciliacion, demanda_numero: @proceeding.demanda_numero, dni: @proceeding.dni, edad: @proceeding.edad, fecha_conciliacion: @proceeding.fecha_conciliacion, fecha_despido: @proceeding.fecha_despido, fecha_juicio: @proceeding.fecha_juicio, fecha_sentencia: @proceeding.fecha_sentencia, juzgado_numero: @proceeding.juzgado_numero, nombre: @proceeding.nombre, num_expediente: @proceeding.num_expediente, sexo: @proceeding.sexo }
     assert_redirected_to proceeding_path(assigns(:proceeding))
   end
 

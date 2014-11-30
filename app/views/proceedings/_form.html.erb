@@ -1,8 +1,8 @@
 <%= form_for(@proceeding) do |f| %>
 <div id="first-block">
   <div class="field">
-	<h2><%= f.label :numExpediente, "#{t(:num_expediente)}:" %> <span id="valueExp"><%= @proceeding.numExpediente %></span></h2>
-	<%= f.hidden_field :numExpediente, :value => @proceeding.numExpediente %>
+	<h2><%= f.label :num_expediente, "#{t(:num_expediente)}:" %> <span id="valueExp"><%= @proceeding.num_expediente %></span></h2>
+	<%= f.hidden_field :num_expediente, :value => @proceeding.num_expediente %>
   </div>
   <div class="field">
 	<div class="block">
@@ -320,7 +320,7 @@
 							console.log(data);
 							if (data < 10)
 								data = "0"+data;
-							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#proceeding_num_expediente").val("" + ano + mes + dia + data);
 							$("#valueExp").html("" + ano + mes + dia + data);
 					  });
 				}
@@ -356,7 +356,7 @@
 							console.log(data);
 							if (data < 10)
 								data = "0"+data;
-							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#proceeding_num_expediente").val("" + ano + mes + dia + data);
 							$("#valueExp").html("" + ano + mes + dia + data);
 					  });
 				}
@@ -384,7 +384,7 @@
 							console.log(data);
 							if (data < 10)
 								data = "0"+data;
-							$("#proceeding_numExpediente").val("" + ano + mes + dia + data);
+							$("#proceeding_num_expediente").val("" + ano + mes + dia + data);
 							$("#valueExp").html("" + ano + mes + dia + data);
 					  });
 				}
