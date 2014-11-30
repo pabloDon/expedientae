@@ -20,8 +20,10 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
+  production:
     adapter: postgresql
-    database: expedientae
-    pool: 5
-    timeout: 5000
+    encoding: unicode
+    database: expedientae_production
+    username: expedientae
+    password: <%= ENV['PRUEBA_DATABASE_PASSWORD'] %>    
+    url: <%= ENV['DATABASE_URL'] %>
